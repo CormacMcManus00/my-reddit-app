@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-reddt-app';
+  addArticle(title:HTMLInputElement, link:HTMLInputElement): Boolean {
+    console.log(`Adding Article Title: ${title.value} & Adding Article Link: ${link.value}`);
+    return false;
+  }
 }
