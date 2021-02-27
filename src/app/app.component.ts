@@ -12,7 +12,7 @@ export class AppComponent {
   constructor() {
     this.articles=[
       new Article("Angular", "http://angular.io",5),
-      new Article("Google", "http://googl.com",3),
+      new Article("Google", "http://google.com",3),
       new Article("TikTok", "http://tiktok.com",1)
     ];
   }
@@ -22,5 +22,9 @@ export class AppComponent {
     link.value="";
 
     return false;
+  }
+
+  sortedArticles(): Article[] {
+    return this.articles.sort((a:Article, b:Article) => b.votes - a.votes);
   }
 }
