@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Article } from './article/article.model';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  articles:Article[];
+
+  constructor() {
+    this.articles=[
+      new Article("Angular", "http://angular.io",5),
+      new Article("Google", "http://googl.com",3),
+      new Article("TikTok", "http://tiktok.com",1)
+    ];
+  }
   addArticle(title:HTMLInputElement, link:HTMLInputElement): Boolean {
-    console.log(`Adding Article Title: ${title.value} & Adding Article Link: ${link.value}`);
+    this.articles.push(new Article(title.value, link.value, 0));
+    title.value="";
+    link.value="";
+
     return false;
   }
 }
